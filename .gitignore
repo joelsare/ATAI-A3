@@ -1,0 +1,11 @@
+/imagenette2-320/*
+/MNIST/*
+imagenette2-320.tgz
+tl_model_v1.weights.best.hdf5
+*.hdf5
+10epoch.jpg
+10epochSEN.jpg
+102020SEN.jpg
+noSEN.jpg
+SEN.jpg
+/Pictures/*
