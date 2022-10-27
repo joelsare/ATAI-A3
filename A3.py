@@ -199,8 +199,8 @@ n_val_steps = 20
 n_epochs = 10
 
 # myModel = create_model(input_shape, n_classes, optim_1)
-# myModel = create_SEN_model(input_shape, n_classes, optim_1)
-# myModel.summary()
+myModel = create_SEN_model(input_shape, n_classes, optim_1)
+myModel.summary()
 
 from livelossplot.inputs.keras import PlotLossesCallback
 
@@ -218,45 +218,45 @@ early_stop = EarlyStopping(monitor='val_loss',
                            mode='min')
 
 
-# history = myModel.fit(traingen,
-#                             batch_size=BATCH_SIZE,
-#                             epochs=n_epochs,
-#                             validation_data=validgen,
-#                             steps_per_epoch=n_steps,
-#                             validation_steps=n_val_steps,
-#                             callbacks=[tl_checkpoint_1, early_stop, plot_loss_1],
-#                             verbose=1)
+history = myModel.fit(traingen,
+                            batch_size=BATCH_SIZE,
+                            epochs=n_epochs,
+                            validation_data=validgen,
+                            steps_per_epoch=n_steps,
+                            validation_steps=n_val_steps,
+                            callbacks=[tl_checkpoint_1, early_stop, plot_loss_1],
+                            verbose=1)
 
 
-# np.save('history1.npy',history.history)
+np.save('history1.npy',history.history)
  
-# history1=np.load('SEN.npy',allow_pickle='TRUE').item()
+history1=np.load('SEN.npy',allow_pickle='TRUE').item()
 
-# pd.DataFrame(history1).plot(figsize=(8,5))
-# plt.savefig("loss.jpg")
+pd.DataFrame(history1).plot(figsize=(8,5))
+plt.savefig("loss.jpg")
 
-# plt.plot(history1['accuracy'])
-# plt.plot(history1['val_accuracy'])
-# plt.title('model accuracy')
-# plt.ylabel('accuracy')
-# plt.xlabel('epoch')
-# plt.legend(['train', 'val'], loc='upper left')
-# plt.show()
-# plt.savefig("accuracy.jpg")
+plt.plot(history1['accuracy'])
+plt.plot(history1['val_accuracy'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+plt.savefig("accuracy.jpg")
 
-# plt.plot(history1['loss'])
-# plt.plot(history1['val_loss'])
-# plt.title('model loss')
-# plt.ylabel('loss')
-# plt.xlabel('epoch')
-# plt.legend(['train', 'val'], loc='upper left')
-# plt.show()
-# plt.savefig("loss.jpg")
+plt.plot(history1['loss'])
+plt.plot(history1['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+plt.savefig("loss.jpg")
 
-myModel = create_model(input_shape, n_classes, optim_1)
+# myModel = create_model(input_shape, n_classes, optim_1)
 # myModel = create_SEN_model(input_shape, n_classes, optim_1)
 
-myModel.load_weights('noSEN.hdf5') 
+# myModel.load_weights('noSEN.hdf5') 
 
 # for i, layer in enumerate(myModel.layers):
 #     print(i, layer.name)
@@ -270,32 +270,32 @@ def processImage(path):
     x = preprocess_input(x)
     return x
 
-img_path = '/home/joelsare@unomaha.edu/Documents/A3/Pictures/1.JPEG'
-x = processImage(img_path)
-features = myModel.predict(x)
-print("image 1:")
-print(features)
-print(np.argmax(features))
+# img_path = '/home/joelsare@unomaha.edu/Documents/A3/Pictures/1.JPEG'
+# x = processImage(img_path)
+# features = myModel.predict(x)
+# print("image 1:")
+# print(features)
+# print(np.argmax(features))
 
-img_path = '/home/joelsare@unomaha.edu/Documents/A3/Pictures/2.JPEG'
-x = processImage(img_path)
-features = myModel.predict(x)
-print("image 2:")
-print(features)
-print(np.argmax(features))
+# img_path = '/home/joelsare@unomaha.edu/Documents/A3/Pictures/2.JPEG'
+# x = processImage(img_path)
+# features = myModel.predict(x)
+# print("image 2:")
+# print(features)
+# print(np.argmax(features))
 
-img_path = '/home/joelsare@unomaha.edu/Documents/A3/Pictures/3.JPEG'
-x = processImage(img_path)
-features = myModel.predict(x)
-print("image 3:")
-print(features)
-print(np.argmax(features))
+# img_path = '/home/joelsare@unomaha.edu/Documents/A3/Pictures/3.JPEG'
+# x = processImage(img_path)
+# features = myModel.predict(x)
+# print("image 3:")
+# print(features)
+# print(np.argmax(features))
 
-img_path = '/home/joelsare@unomaha.edu/Documents/A3/Pictures/4.JPEG'
-x = processImage(img_path)
-features = myModel.predict(x)
-print("image 4:")
-print(features)
-print(np.argmax(features))
+# img_path = '/home/joelsare@unomaha.edu/Documents/A3/Pictures/4.JPEG'
+# x = processImage(img_path)
+# features = myModel.predict(x)
+# print("image 4:")
+# print(features)
+# print(np.argmax(features))
 
 # showFeatures(img_path, "Pictures/4noSENfeatures18", myModel, 18)
